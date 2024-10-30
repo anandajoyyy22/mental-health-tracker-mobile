@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'menu.dart'; // Import file menu.dart
+import 'package:mental_health_tracker/menu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,12 +13,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Mental Health Tracker',
       theme: ThemeData(
-        primarySwatch: Colors.blue, // Ubah warna utama sesuai kebutuhan
-        colorScheme: ColorScheme.fromSwatch().copyWith(
-          secondary: Colors.blueAccent, // Warna sekunder
-        ),
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.deepPurple,
+        ).copyWith(secondary: Colors.deepPurple[400]),
       ),
-      home: MyHomePage(), // Mengatur halaman awal
+      home: const MyHomePage(),
     );
   }
 }
