@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mental_health_tracker/models/mood_entry.dart';
 import 'package:mental_health_tracker/widgets/left_drawer.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-// import 'package:mental_health_tracker/providers/cookie_request.dart';
 
 class MoodEntryPage extends StatefulWidget {
   const MoodEntryPage({super.key});
@@ -13,12 +13,13 @@ class MoodEntryPage extends StatefulWidget {
 
 class _MoodEntryPageState extends State<MoodEntryPage> {
   Future<List<MoodEntry>> fetchMood(CookieRequest request) async {
-    // TOD: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
-    final response = await request.get('http://10.0.2.2/json/');
+    // TOD Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
+    final response = await request.get('http://127.0.0.1:8000/json/');
+    // final response = await request.get('http://10.0.2.2/json/');
     
     // Melakukan decode response menjadi bentuk json
     var data = response;
-    
+
     // Melakukan konversi data json menjadi object MoodEntry
     List<MoodEntry> listMood = [];
     for (var d in data) {

@@ -1,44 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:mental_health_tracker/widgets/mood_card.dart';
-// Impor drawer widget
-import 'package:mental_health_tracker/widgets/left_drawer.dart'; 
+import 'package:mental_health_tracker/widgets/left_drawer.dart';
 
 class MyHomePage extends StatelessWidget {
-  final String npm = '2206811190'; // NPM
-  final String name = 'Ananda Joy Pratiwi Pasha Patoding'; // Nama
-  final String className = 'PBP E'; // Kelas
+  final String npm = "2206811190";
+  final String name = "Ananda Joy Pratiwi Pasha Patoding";
+  final String className = "PBP E";
+  final List<ItemHomePage> items = [
+    ItemHomePage("Lihat Mood", Icons.mood),
+    ItemHomePage("Tambah Mood", Icons.add),
+    ItemHomePage("Logout", Icons.logout),
+  ];
 
-  const MyHomePage({super.key});
+  MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Scaffold menyediakan struktur dasar halaman dengan appBar dan body.
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Mental Health Tracker',
+          "Mental Health Tracker",
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        // Mengganti warna icon drawer menjadi putih
-        iconTheme: const IconThemeData(color: Colors.white),
       ),
-      // Masukkan drawer sebagai parameter nilai drawer dari widget Scaffold
       drawer: const LeftDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                InfoCard(title: 'NPM', content: npm),
-                InfoCard(title: 'Name', content: name),
-                InfoCard(title: 'Class', content: className),
+                InfoCard(title: "NPM", content: npm),
+                InfoCard(title: "Name", content: name),
+                InfoCard(title: "Class", content: className),
               ],
             ),
             const SizedBox(height: 16.0),
@@ -47,25 +45,21 @@ class MyHomePage extends StatelessWidget {
                 children: [
                   const Padding(
                     padding: EdgeInsets.only(top: 16.0),
-                    child: Text(
-                      'Welcome to Mental Health Tracker',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18.0,
-                      ),
-                    ),
+                    child: Text("Welcome to Mental Health Tracker",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18.0)),
                   ),
                   GridView.count(
                     primary: true,
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20.0),
+                    crossAxisCount: 3,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
-                    crossAxisCount: 3,
                     shrinkWrap: true,
-                    children: items.map((ItemHomepage item) {
+                    children: items.map((ItemHomePage item) {
                       return ItemCard(item);
                     }).toList(),
-                  ),
+                  )
                 ],
               ),
             ),
@@ -77,8 +71,8 @@ class MyHomePage extends StatelessWidget {
 }
 
 class InfoCard extends StatelessWidget {
-  final String title; // Judul kartu.
-  final String content; // Isi kartu.
+  final String title;
+  final String content;
 
   const InfoCard({super.key, required this.title, required this.content});
 
@@ -96,11 +90,10 @@ class InfoCard extends StatelessWidget {
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8.0),
-            Text(content),
+            Text(content)
           ],
         ),
       ),
     );
   }
 }
-

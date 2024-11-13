@@ -20,12 +20,12 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Mental Health Tracker',
         theme: ThemeData(
-          useMaterial3: true,
           colorScheme: ColorScheme.fromSwatch(
             primarySwatch: Colors.deepPurple,
           ).copyWith(secondary: Colors.deepPurple[400]),
+          useMaterial3: true,
         ),
-        home: const MyHomePage(),
+        home: MyHomePage(),
       ),
     );
   }

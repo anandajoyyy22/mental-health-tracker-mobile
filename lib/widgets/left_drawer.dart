@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mental_health_tracker/screens/moodentry_form.dart';
+import 'package:mental_health_tracker/screens/list_moodentry.dart';
 import 'package:mental_health_tracker/screens/menu.dart';
-import 'package:mental_health_tracker/screens/moodentry_form.dart';  // Impor halaman MoodEntryFormPage
-import 'package:mental_health_tracker/screens/list_moodentry.dart'; 
-
-
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -13,7 +11,6 @@ class LeftDrawer extends StatelessWidget {
     return Drawer(
       child: ListView(
         children: [
-          // Bagian Drawer Header
           DrawerHeader(
             decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.primary,
@@ -32,29 +29,26 @@ class LeftDrawer extends StatelessWidget {
                 Padding(padding: EdgeInsets.all(8)),
                 Text(
                   "Ayo jaga kesehatan mentalmu setiap hari disini!",
-                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.white,
                     fontWeight: FontWeight.normal,
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),
           ),
-
-          // Bagian Routing
           ListTile(
             leading: const Icon(Icons.home_outlined),
             title: const Text('Halaman Utama'),
             // Bagian redirection ke MyHomePage
             onTap: () {
               Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MyHomePage(),
-                ),
-              );
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyHomePage(),
+                  ));
             },
           ),
           ListTile(
@@ -62,12 +56,10 @@ class LeftDrawer extends StatelessWidget {
             title: const Text('Tambah Mood'),
             // Bagian redirection ke MoodEntryFormPage
             onTap: () {
-              // Routing ke MoodEntryFormPage
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const MoodEntryFormPage(), // Halaman mood entry
-                ),
+                    builder: (context) => const MoodEntryFormPage()),
               );
             },
           ),
@@ -75,10 +67,10 @@ class LeftDrawer extends StatelessWidget {
             leading: const Icon(Icons.add_reaction_rounded),
             title: const Text('Daftar Mood'),
             onTap: () {
-                // Route menu ke halaman mood
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MoodEntryPage()),
+              // Route menu ke halaman mood
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MoodEntryPage()),
               );
             },
           ),

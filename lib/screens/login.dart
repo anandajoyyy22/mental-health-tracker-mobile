@@ -2,6 +2,7 @@ import 'package:mental_health_tracker/screens/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+// TOD Import halaman RegisterPage jika sudah dibuat
 import 'package:mental_health_tracker/screens/register.dart';
 
 void main() {
@@ -99,11 +100,11 @@ class _LoginPageState extends State<LoginPage> {
                       String password = _passwordController.text;
 
                       // Cek kredensial
-                      // todo Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
+                      // TOD Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
                       // Untuk menyambungkan Android emulator dengan Django pada localhost,
                       // gunakan URL http://10.0.2.2/
                       final response = await request
-                          .login("http://10.0.2.2/auth/login/", {
+                          .login("http://127.0.0.1:8000/auth/login/", {
                         'username': username,
                         'password': password,
                       });
@@ -115,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const MyHomePage()),
+                                builder: (context) => MyHomePage()),
                           );
                           ScaffoldMessenger.of(context)
                             ..hideCurrentSnackBar()
